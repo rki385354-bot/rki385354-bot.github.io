@@ -1,72 +1,135 @@
+/* DM博物馆 - 暗黑神秘主题 */
 body {
     font-family: 'Microsoft YaHei', 'Segoe UI', sans-serif;
-    background-color: #e3f2fd;
-    color: #333;
+    background-color: #0a0a0f; /* 深邃主背景 */
+    color: #e0e0e0; /* 主文字色 */
     line-height: 1.6;
     max-width: 1200px;
-    margin: 20px auto;
+    margin: 40px auto;
     padding: 20px;
 }
+
+/* 横幅图片 - 增加暗色叠加层效果 */
 .banner {
     width: 100%;
     height: 250px;
     object-fit: cover;
     border-radius: 10px;
     margin-bottom: 30px;
-    box-shadow: 0 4px 12px rgba(30, 136, 229, 0.3);
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.4); /* 青色光晕 */
+    border: 1px solid #333;
 }
+
+/* 主标题 - 像发光字 */
+h1 {
+    color: #00d4ff; /* 青色 */
+    text-align: center;
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.7);
+    border-bottom: 2px solid #9d4edd; /* 紫色下划线 */
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+    letter-spacing: 1px; /* 字间距 */
+}
+
+/* 次级标题 */
+h2 {
+    color: #9d4edd; /* 紫色 */
+    margin-top: 0;
+    margin-bottom: 20px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #333;
+}
+
+/* 左右分栏容器 */
 .main-content {
     display: flex;
     gap: 30px;
 }
+
+/* 左右栏通用卡片样式 */
+.left-column,
+.right-column {
+    background-color: #151521; /* 卡片深色背景 */
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid #252535;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+/* 左侧栏特定样式 */
 .left-column {
     flex: 1;
-    background-color: white;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
 }
+
+/* 右侧栏特定样式 */
 .right-column {
     flex: 2;
-    background-color: white;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
 }
-h1 {
-    color: #1565c0;
-    text-align: center;
-    border-bottom: 3px solid #64b5f6;
-    padding-bottom: 15px;
-    margin-bottom: 25px;
-}
-h2 {
-    color: #0d47a1;
-    margin-top: 0;
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-    border-bottom: 2px solid #bbdefb;
-}
+
+/* 角色列表 - 每个角色像一张待翻开的卡 */
 .character-list {
     list-style-type: none;
     padding-left: 0;
 }
 .character-list li {
-    padding: 12px 15px;
-    margin-bottom: 10px;
-    background-color: #f8fdff;
-    border-left: 4px solid #2196f3;
-    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 12px;
+    background: linear-gradient(145deg, #1a1a2a, #151521); /*  subtle gradient */
+    border-left: 4px solid #00d4ff; /* 青色高光边 */
+    border-radius: 8px;
     transition: all 0.3s ease;
+    cursor: pointer;
 }
 .character-list li:hover {
-    background-color: #e1f5fe;
-    transform: translateX(5px);
+    background: #1e1e2e;
+    border-left-color: #9d4edd; /* 悬停变紫色 */
+    transform: translateX(5px) translateY(-2px);
+    box-shadow: 0 5px 15px rgba(157, 78, 221, 0.3);
 }
+
+/* 右侧栏列表 */
 .right-column ul {
     padding-left: 20px;
 }
 .right-column li {
     margin-bottom: 10px;
     padding-left: 5px;
+    position: relative;
+}
+.right-column li::before {
+    content: "◆"; /* 小菱形作为列表点 */
+    color: #00d4ff;
+    position: absolute;
+    left: -15px;
+    font-size: 0.8em;
+}
+
+/* 段落和强调文字 */
+p {
+    color: #cccccc;
+}
+strong {
+    color: #00d4ff;
+}
+
+/* 链接样式 (如果你未来加链接) */
+a {
+    color: #9d4edd;
+    text-decoration: none;
+    border-bottom: 1px dotted #9d4edd;
+}
+a:hover {
+    color: #00d4ff;
+    border-bottom-style: solid;
+    }
+/* 强制所有模式都使用深色主题 */
+@media (prefers-color-scheme: light) {
+  /* 即使系统是日间模式，也强制使用上面的深色样式 */
+  /* 不需要写任何内容，因为上面的样式已经定义了深色外观 */
+}
+/* 为深色模式做一点微调（可选） */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #050508; /* 在深色模式下使用更纯的黑 */
+  }
 }
